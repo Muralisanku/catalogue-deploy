@@ -1,0 +1,6 @@
+.terraform/
+*.tfstate
+*.tfstate.*
+echo ".terraform/" >> .gitignore
+echo "*.tfstate" >> .gitignore
+echo "*.tfstate.*" >> .gitignore
