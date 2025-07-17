@@ -42,6 +42,15 @@ pipeline {
                 """
             }
         }
+
+        stage('apply') {
+            steps {
+                sh """
+                    cd terraform
+                    terraform apply -var-file=${params.environment}/${params.environment}.tfvars -var="app_version=${params.version}" -auto-approve
+                """
+            }
+        }
     }  // <--- This closing brace was missing for the stages block
 
     post { 
