@@ -21,8 +21,8 @@ pipeline {
         stage('Print version') {
             steps {
                 sh """
-                    echo "version: ${parms.version}"
-                    echo "environment: ${parms.environment}"
+                    echo "version: ${params.version}"
+                    echo "environment: ${params.environment}"
                 """
             }
         }
@@ -30,7 +30,15 @@ pipeline {
             steps {
                 sh """
                     cd terraform
-                    terraform init --backend-config=${parms.environment}/backend.tf -reconfigure
+                    terraform init --backend-config=${params.environment}/backend.tf -reconfigure
+                """
+            }
+        }
+        stage('Plan') {
+            steps {
+                sh """
+                    cd terraform
+                    terraform init -var-file=${params.environment}/${params.environment}/.tfvars -var="app_version="${params.version}"
                 """
             }
         }
