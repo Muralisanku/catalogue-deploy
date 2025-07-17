@@ -38,10 +38,11 @@ pipeline {
             steps {
                 sh """
                     cd terraform
-                    terraform init -var-file=${params.environment}/${params.environment}/.tfvars -var="app_version="${params.version}"
+                    terraform plan -var-file=${params.environment}/${params.environment}.tfvars -var="app_version=${params.version}"
                 """
             }
         }
+    }  // <--- This closing brace was missing for the stages block
 
     post { 
         always { 
