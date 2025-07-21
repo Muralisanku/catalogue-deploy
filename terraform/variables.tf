@@ -23,3 +23,7 @@ variable "environment" {
 variable "zone_name" {
   default = "joinaiops.store"
 }
+
+variable "app_version" {
+  
+}
