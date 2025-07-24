@@ -4,7 +4,7 @@ data "aws_ami" "centos8"{
 
         filter {
         name   = "name"
-        values = ["RHEL-9-DevOps-Practice"]
+        values = ["Centos-8-DevOps-Practice"]
     }
 
         filter {

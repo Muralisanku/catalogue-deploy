@@ -1,4 +1,4 @@
 bucket = "joinaiops-state-prod"
-key    = "multienv"
+key    = "catalogue"
 region = "us-east-1"
 dynamodb_table = "joinaiops-locking-prod"
